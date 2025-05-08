@@ -13,7 +13,7 @@
       <!-- Preload Assets -->
       <a-assets>
         <video id="therapyVideo"
-               src="assets/models/WhatsApp Video 2025-05-08 at 15.33.58_ebf983c4 (1) (1) (1).mp4"
+               src="assets/models/videos/WhatsApp Video 2025-05-08 at 15.33.58_ebf983c4 (1) (online-video-cutter.com).mp4"
                autoplay
                loop
                muted
@@ -38,49 +38,55 @@
 
       <!-- Start Buttons -->
       <a-box id="startBtn1"
-             position="-1.5 1.5 -3"
-             width="1.2"
-             height="0.5"
-             depth="0.1"
-             color="#2196F3">
-        <a-text id="startText1"
-                value="Start Therapy 1"
-                position="0 0 0.06"
-                align="center"
-                width="2"
-                color="white">                           
-        </a-text>
-      </a-box>
+      position="-1.5 1.5 -3"
+      width="1.2"
+      height="0.5"
+      depth="0.1"
+      color="#795548"
+      opacity="0.8"
+      material="shader: flat; transparent: true">
+ <a-text id="startText1"
+         value="Fear of Height"
+         position="0 0 0.06"
+         align="center"
+         width="2"
+         color="white">
+ </a-text>
+</a-box>
 
-      <a-box id="startBtn2"
-             position="0 1.2 -3"
-             width="1.2"
-             height="0.5"
-             depth="0.1"
-             color="#2196F3">
-        <a-text id="startText2"
-                value="Start Therapy 2"
-                position="0 0 0.06"
-                align="center"
-                width="2"
-                color="white">
-        </a-text>
-      </a-box>
+<a-box id="startBtn2"
+      position="0 1.2 -3"
+      width="1.2"
+      height="0.5"
+      depth="0.1"
+      color="#795548"
+      opacity="0.8"
+      material="shader: flat; transparent: true">
+ <a-text id="startText2"
+         value="Fear of Accidents"
+         position="0 0 0.06"
+         align="center"
+         width="2"
+         color="white">
+ </a-text>
+</a-box>
 
-      <a-box id="startBtn3"
-             position="1.5 1.5 -3"
-             width="1.2"
-             height="0.5"
-             depth="0.1"
-             color="#2196F3">
-        <a-text id="startText3"
-                value="Start Therapy 3"
-                position="0 0 0.06"
-                align="center"
-                width="2"
-                color="white">
-        </a-text>
-      </a-box>
+<a-box id="startBtn3"
+      position="1.5 1.5 -3"
+      width="1.2"
+      height="0.5"
+      depth="0.1"
+      color="#795548"
+      opacity="0.8"
+      material="shader: flat; transparent: true">
+ <a-text id="startText3"
+         value="Fear of Closed Space"
+         position="0 0 0.06"
+         align="center"
+         width="2"
+         color="white">
+ </a-text>
+</a-box>
 
       <!-- Camera & Cursor -->
       <a-camera look-controls="touchEnabled: true; magicWindowTrackingEnabled: true">
@@ -105,9 +111,7 @@
     </div>
 
     <div id="chatPanel" class="panel right-panel">
-      <h3>Chatbot</h3>
-      <div id="chatWindow"></div>
-      <input type="text" id="userInput" placeholder="Type here..." />
+      <button>ChatBot</button>
     </div>
 
     <a-entity camera look-controls position="0 1.6 0">

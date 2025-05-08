@@ -8,15 +8,22 @@ window.addEventListener('DOMContentLoaded', () => {
   const sky = document.getElementById('sky');
   const videoSphere = document.getElementById('videoSphere');
   const video = document.getElementById('therapyVideo');
+  const buttons = [startBtn1, startBtn2, startBtn3]; // Array of buttons for easier handling
 
   // Function to start therapy
-  const startTherapy = (therapyNumber) => {
+  const startTherapy = (therapyNumber, videoSrc) => {
     messageBox.textContent = `Therapy ${therapyNumber} Started!`;
     messageBox.classList.remove('hidden');
+
+    // Update video source
+    video.setAttribute('src', videoSrc);
 
     // Show video sphere, hide sky
     sky.setAttribute('visible', 'false');
     videoSphere.setAttribute('visible', 'true');
+
+    // Hide all buttons
+    buttons.forEach(button => button.setAttribute('visible', 'false'));
 
     // Play the video
     video.play()
@@ -31,12 +38,19 @@ window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       messageBox.classList.add('hidden');
     }, 4000);
+
+    // Restore buttons when the video ends
+    video.onended = () => {
+      buttons.forEach(button => button.setAttribute('visible', 'true'));
+      sky.setAttribute('visible', 'true');
+      videoSphere.setAttribute('visible', 'false');
+    };
   };
 
-  // Add event listeners for each button
-  startBtn1.addEventListener('click', () => startTherapy(1));
-  startBtn2.addEventListener('click', () => startTherapy(2));
-  startBtn3.addEventListener('click', () => startTherapy(3));
+  // Add event listeners for each button with corresponding video sources
+  startBtn1.addEventListener('click', () => startTherapy(1, 'assets/models/videos/WhatsApp Video 2025-05-08 at 15.33.58_ebf983c4 (1) (online-video-cutter.com).mp4'));
+  startBtn2.addEventListener('click', () => startTherapy(2, 'assets/models/videos/fear of driving.mp4'));
+  startBtn3.addEventListener('click', () => startTherapy(3, 'assets/models/videos/fear of closed.mp4'));
 });
 
 // Ask for gyro permission on mobile devices
