@@ -56,3 +56,17 @@ function askGyroPermission() {
   document.removeEventListener('click', askGyroPermission);
 }
 document.addEventListener('click', askGyroPermission);
+
+const scene = document.querySelector('a-scene');
+const statsPanel = document.getElementById('statsPanel');
+const chatPanel = document.getElementById('chatPanel');
+
+scene.addEventListener('enter-vr', () => {
+  statsPanel.style.display = 'none';
+  chatPanel.style.display = 'none';
+});
+
+scene.addEventListener('exit-vr', () => {
+  statsPanel.style.display = 'block';
+  chatPanel.style.display = 'block';
+});
