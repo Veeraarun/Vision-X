@@ -23,9 +23,8 @@ body {
   display: none;
 }
 
-
 .panel {
-  position: absolute;
+  position: fixed;
   top: 60px;
   background: rgba(0, 0, 0, 0.7);
   color: white;
@@ -33,7 +32,8 @@ body {
   border-radius: 8px;
   width: 200px;
   font-size: 14px;
-  z-index: 1000;
+  z-index: 9999; /* Stay on top */
+  pointer-events: auto;
 }
 
 .left-panel {
