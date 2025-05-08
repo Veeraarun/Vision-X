@@ -19,11 +19,13 @@ window.addEventListener('DOMContentLoaded', () => {
     videoSphere.setAttribute('visible', 'true');
 
     // Play the video
-    video.play().then(() => {
-      console.log(`Therapy ${therapyNumber} video playing`);
-    }).catch(err => {
-      console.error(`Therapy ${therapyNumber} playback failed:`, err);
-    });
+    video.play()
+      .then(() => {
+        console.log(`Therapy ${therapyNumber} video playing`);
+      })
+      .catch(err => {
+        console.error(`Therapy ${therapyNumber} playback failed:`, err);
+      });
 
     // Hide message after 4 seconds
     setTimeout(() => {
@@ -55,6 +57,7 @@ function askGyroPermission() {
   }
   document.removeEventListener('click', askGyroPermission);
 }
+
 document.addEventListener('click', askGyroPermission);
 
 const scene = document.querySelector('a-scene');
