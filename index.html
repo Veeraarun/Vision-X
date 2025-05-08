@@ -89,13 +89,21 @@
 </a-box>
 
       <!-- Camera & Cursor -->
-      <a-camera look-controls="touchEnabled: true; magicWindowTrackingEnabled: true">
+      <a-camera look-controls="touchEnabled: true; magicWindowTrackingEnabled: true" position="0 1.6 0">
         <a-cursor fuse="true"
                   fuse-timeout="1000"
                   color="black"
                   geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
                   material="shader: flat">
         </a-cursor>
+
+        <!-- Stats Panel (Attached to Camera) -->
+        <a-entity id="statsPanel" position="0 -0.5 -1.5">
+          <a-plane width="1.4" height="0.8" color="#000" opacity="0.6"></a-plane>
+          <a-text value="Heart Rate: 78 bpm\nStress: Low\nBreathing: Normal"
+                  color="#FFF" width="1.2" position="-0.65 0.3 0.01">
+          </a-text>
+        </a-entity>
       </a-camera>
     </a-scene>
 
