@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>VR Therapy</title>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <a-scene>
+
+      <!-- Preload Assets -->
+      <a-assets>
+        <video id="therapyVideo"
+               src="assets/models/xvis - Made with Clipchamp.mp4"
+               autoplay
+               loop
+               muted
+               playsinline
+               webkit-playsinline
+               crossorigin="anonymous">
+        </video>
+      </a-assets>
+
+      <!-- Initial 360 Image Background -->
+      <a-sky id="sky"
+             src="assets/models/bryan-goff-IuyhXAia8EA-unsplash.jpg"
+             rotation="0 -90 0">
+      </a-sky>
+
+      <!-- Hidden 360 Video Background -->
+      <a-videosphere id="videoSphere"
+                     src="#therapyVideo"
+                     visible="false"
+                     rotation="0 -90 0">
+      </a-videosphere>
+
+      <!-- Start Button -->
+      <a-box id="startBtn"
+             position="0 1.5 -3"
+             width="1.2"
+             height="0.5"
+             depth="0.1"
+             color="#2196F3">
+        <a-text id="startText"
+                value="Start Therapy"
+                position="0 0 0.06"
+                align="center"
+                width="2"
+                color="white">
+        </a-text>
+      </a-box>
+
+      <!-- Camera & Cursor -->
+      <a-camera look-controls="touchEnabled: true; magicWindowTrackingEnabled: true">
+        <a-cursor fuse="true"
+                  fuse-timeout="1000"
+                  color="black"
+                  geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
+                  material="shader: flat">
+        </a-cursor>
+      </a-camera>
+    </a-scene>
+
+    <!-- Floating Message -->
+    <div id="message" class="message hidden">Therapy Started!</div>
+
+    <!-- Main JS -->
+    <script src="script.js"></script>
+  </body>
+</html>
