@@ -1,41 +1,40 @@
 // script.js
 
 window.addEventListener('DOMContentLoaded', () => {
-  const startBtn = document.querySelector('#startBtn');
+  const startBtn1 = document.querySelector('#startBtn1');
+  const startBtn2 = document.querySelector('#startBtn2');
+  const startBtn3 = document.querySelector('#startBtn3');
   const messageBox = document.getElementById('message');
   const sky = document.getElementById('sky');
   const videoSphere = document.getElementById('videoSphere');
   const video = document.getElementById('therapyVideo');
 
-  // Hover effects for start button
-  startBtn.addEventListener('mouseenter', () => {
-    startBtn.setAttribute('color', '#1976D2');
-  });
-
-  startBtn.addEventListener('mouseleave', () => {
-    startBtn.setAttribute('color', '#2196F3');
-  });
-
-  // Start therapy click
-  startBtn.addEventListener('click', () => {
+  // Function to start therapy
+  const startTherapy = (therapyNumber) => {
+    messageBox.textContent = `Therapy ${therapyNumber} Started!`;
     messageBox.classList.remove('hidden');
 
     // Show video sphere, hide sky
     sky.setAttribute('visible', 'false');
     videoSphere.setAttribute('visible', 'true');
 
-    // Play the video on user interaction
+    // Play the video
     video.play().then(() => {
-      console.log("Video playing");
+      console.log(`Therapy ${therapyNumber} video playing`);
     }).catch(err => {
-      console.error("Playback failed:", err);
+      console.error(`Therapy ${therapyNumber} playback failed:`, err);
     });
 
-    // Hide message after 4s
+    // Hide message after 4 seconds
     setTimeout(() => {
       messageBox.classList.add('hidden');
     }, 4000);
-  });
+  };
+
+  // Add event listeners for each button
+  startBtn1.addEventListener('click', () => startTherapy(1));
+  startBtn2.addEventListener('click', () => startTherapy(2));
+  startBtn3.addEventListener('click', () => startTherapy(3));
 });
 
 // Ask for gyro permission on mobile devices
