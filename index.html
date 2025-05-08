@@ -99,7 +99,7 @@
 
         <!-- Stats Panel (Attached to Camera) -->
         <a-entity id="statsPanel" position="0.8 0.8 -1.5" scale="0.5 0.5 0.5">
-          <a-plane width="1.4" height="0.8" color="#000" opacity="0.6"></a-plane>
+          <a-plane width="1.4" height="0" color="#000" opacity="0.6"></a-plane>
           <a-text value="Heart Rate: 78 bpm\nStress: Low\nBreathing: Normal"
                   color="#FFF" width="1.2" position="-0.65 0.3 0.01">
           </a-text>
@@ -109,14 +109,7 @@
 
     <!-- Floating Message -->
     <div id="message" class="message hidden">Therapy Started!</div>
-    
-    <!-- UI Panels -->
-    <div id="statsPanel" class="panel left-panel">
-      <h3>Medical Stats</h3>
-      <p>Heart Rate: 78 bpm</p>
-      <p>Stress Level: Low</p>
-      <p>Breathing: Normal</p>
-    </div>
+  
 
     <div id="chatPanel" class="panel right-panel">
       <button>ChatBot</button>
