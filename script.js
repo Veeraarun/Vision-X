@@ -60,9 +60,9 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   // Add event listeners for each button with corresponding video sources
-  startBtn1.addEventListener('click', () => startTherapy(1, 'assets/models/videos/WhatsApp Video 2025-05-08 at 15.33.58_ebf983c4 (1) (online-video-cutter.com).mp4'));
-  startBtn2.addEventListener('click', () => startTherapy(2, 'assets/models/videos/WhatsApp Video 2025-05-09 at 07.37.24_c3bd18c4.mp4'));
-  startBtn3.addEventListener('click', () => startTherapy(3, 'assets/models/videos/WhatsApp Video 2025-05-09 at 08.19.28_25b4a779.mp4'));
+  startBtn1.addEventListener('click', () => startTherapy(1, 'assets/models/videos/WhatsApp Video 2025-05-09 at 09.37.21_6b048267.mp4'));
+  startBtn2.addEventListener('click', () => startTherapy(2, 'assets/models/videos/WhatsApp Video 2025-05-09 at 09.37.25_9cc42ef7.mp4'));
+  startBtn3.addEventListener('click', () => startTherapy(3, 'assets/models/videos/WhatsApp Video 2025-05-09 at 09.37.44_d7cc371e.mp4'));
 
   // Start background sound after user interaction
   const startBgSound = () => {
