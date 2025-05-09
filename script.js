@@ -8,11 +8,17 @@ window.addEventListener('DOMContentLoaded', () => {
   const sky = document.getElementById('sky');
   const videoSphere = document.getElementById('videoSphere');
   const video = document.getElementById('therapyVideo');
-  const buttons = [startBtn1, startBtn2, startBtn3]; // Array of buttons for easier handling
+  const buttons = [startBtn1, startBtn2, startBtn3];
+  const bgSound = document.querySelector('#bgSound');
 
   // Function to start therapy
   const startTherapy = (therapyNumber, videoSrc) => {
-    messageBox.textContent = `Therapy ${therapyNumber} Started!`;
+    // Stop background sound
+    if (bgSound.components && bgSound.components.sound) {
+      bgSound.components.sound.stopSound();
+      console.log("Background sound stopped.");
+    }
+
     messageBox.classList.remove('hidden');
 
     // Update video source
@@ -39,18 +45,37 @@ window.addEventListener('DOMContentLoaded', () => {
       messageBox.classList.add('hidden');
     }, 4000);
 
-    // Restore buttons when the video ends
+    // Restore buttons and background sound when the video ends
     video.onended = () => {
       buttons.forEach(button => button.setAttribute('visible', 'true'));
       sky.setAttribute('visible', 'true');
       videoSphere.setAttribute('visible', 'false');
+
+      // Restart background sound
+      if (bgSound.components && bgSound.components.sound) {
+        bgSound.components.sound.playSound();
+        console.log("Background sound restarted.");
+      }
     };
   };
 
   // Add event listeners for each button with corresponding video sources
   startBtn1.addEventListener('click', () => startTherapy(1, 'assets/models/videos/WhatsApp Video 2025-05-08 at 15.33.58_ebf983c4 (1) (online-video-cutter.com).mp4'));
-  startBtn2.addEventListener('click', () => startTherapy(2, 'assets/models/videos/fear of driving.mp4'));
-  startBtn3.addEventListener('click', () => startTherapy(3, 'assets/models/videos/fear of closed.mp4'));
+  startBtn2.addEventListener('click', () => startTherapy(2, 'assets/models/videos/WhatsApp Video 2025-05-09 at 07.37.24_c3bd18c4.mp4'));
+  startBtn3.addEventListener('click', () => startTherapy(3, 'assets/models/videos/WhatsApp Video 2025-05-09 at 08.19.28_25b4a779.mp4'));
+
+  // Start background sound after user interaction
+  const startBgSound = () => {
+    if (bgSound.components && bgSound.components.sound) {
+      bgSound.components.sound.playSound();
+      console.log("Background sound started.");
+    } else {
+      console.error("Sound component not found on #bgSound.");
+    }
+    document.removeEventListener('click', startBgSound);
+  };
+
+  document.addEventListener('click', startBgSound);
 });
 
 // Ask for gyro permission on mobile devices
